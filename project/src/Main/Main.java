@@ -2,20 +2,28 @@ package Main;
 
 import java.util.Scanner;
 
+import library.Amanat;
 import library.Book;
 import library.Member;
 import libraryManager.AdminManager;
+import libraryManager.AmanatManager;
 import libraryManager.BookManager;
 import libraryManager.MemberManager;
+import txtManager.txtManager;
 
 
 public class Main {
 
 	public static void main(String[] args) 
 	{
+		
+		
+		
+		
+		
 		//------------------------------- Login -------------------------------
 		int login=-1;
-		String search,id,password;
+		String search,id="",password;
 		Scanner input =new Scanner (System.in);
 		System.out.println("Welcome to the H.U.T library");
 		System.out.println("Select one of the following (enter its number)");
@@ -177,6 +185,8 @@ public class Main {
 				else if(member.indexA()==1)
 				{
 					System.out.println("You are logged in...");
+					
+					
 					MemberInformation=true;
 					break;
 				}
@@ -226,6 +236,14 @@ public class Main {
 		if(MemberMenu==2)
 		{
 			System.out.println("You selected Book Management");
+			
+			Amanat tx=new Amanat();
+			tx.setAuthor("asdasd");
+			tx.setTitle("asdasd");
+			tx.setID(id);
+			AmanatManager am=new AmanatManager();
+			am.AddBook(tx);
+			
 		}//end of if Book Management
 				
 		//Logout
