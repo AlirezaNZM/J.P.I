@@ -130,8 +130,21 @@ public class Main {
 		if(AdminMenu==3)
 		{
 			System.out.println("You selected Book Management");
-			
-			
+
+		  //Add Book
+			System.out.println("Enter a name");
+			String name = input.next();
+			System.out.println("Enter author name");
+			String author = input.next();
+			System.out.println("Enter a status");
+			Boolean status = input.nextBoolean();
+			Book book = new Book();
+			book.setTitle(name);
+			book.setAuthor(author);
+			book.setStatus(status);
+			BookManager nb = new BookManager();
+			nb.AddBook(book);
+			System.out.println("Done!");
 		}// end of if Book Management
 		
 		//Report

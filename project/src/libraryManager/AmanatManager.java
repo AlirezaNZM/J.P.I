@@ -1,5 +1,5 @@
 package libraryManager;
-
+import java.util.Date;
 import library.Amanat;
 import library.Book;
 import library.Member;
@@ -19,7 +19,9 @@ public class AmanatManager extends txtManager
 	//Member m=new Member();
 	public void AddBook(Amanat a) 
 	{
-		String s="ID=" + a.getID() + "," +"Title=" + a.getTitle() + "," + "Author=" + a.getAuthor();
+		Date date = new Date();
+		String str = String.format("Data: %tF", date);
+		String s="ID=" + a.getID() + "," +"Title=" + a.getTitle() + "," + "Author=" + a.getAuthor() + str;
 		
 		super.txtWrite(s);
 	}

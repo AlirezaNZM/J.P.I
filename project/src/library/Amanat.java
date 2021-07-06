@@ -3,7 +3,6 @@ package library;
 public class Amanat 
 {
 	private String Author;
-	private int date;
 	private String title;
 	private String ID;
 	
@@ -25,12 +24,7 @@ public class Amanat
 	public void setAuthor(String auther) {
 		this.Author = auther;
 	}
-	public int getDate() {
-		return date;
-	}
-	public void setDate(int date) {
-		this.date = date;
-	}
+
 
 	
 	
