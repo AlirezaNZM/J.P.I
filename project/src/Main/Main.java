@@ -122,29 +122,94 @@ public class Main {
 		if(AdminMenu==2)
 		{
 			System.out.println("You selected User Management");
-			
-			
+
+			//add member
+			System.out.println("You selected Add Member");
+			System.out.println("Enter name");
+			String name = input.next();
+			System.out.println("Enter family");
+			String family = input.next();
+			System.out.println("Enter Password");
+			String Password = input.next();
+			Member member = new Member();
+			member.setID();
+			member.setName(name);
+			member.setFamily(family);
+			member.setPassword(Password);
+			MemberManager nm = new MemberManager();
+			nm.AddMember(member);
+			//end of add member
+
 		}// end of if User Management
 		
 		//Book Management
 		if(AdminMenu==3)
 		{
 			System.out.println("You selected Book Management");
+			System.out.println("Select one of the following (enter its number)");
+			int bookmanagement;
+			while(1==1) {
+				System.out.println("1:Home \t \n" + "2:Add Book \t \n" + "3:Delete Book  \t \n" + "4:Search Book \t \n" + "5:Available Book list");
+				bookmanagement = input.nextInt();
+				if (bookmanagement == 1) {
+					break;
+				} else if (bookmanagement == 2) {
+					break;
+				} else if (bookmanagement == 3) {
+					break;
+				} else if (bookmanagement == 4) {
+					break;
+				} else if (bookmanagement == 5) {
+					break;
+				} else
+					System.out.println("Enter the number correctly !");
+			}// end of if bookmanagement
 
-		  //Add Book
-			System.out.println("Enter a name");
-			String name = input.next();
-			System.out.println("Enter author name");
-			String author = input.next();
-			System.out.println("Enter a status");
-			Boolean status = input.nextBoolean();
-			Book book = new Book();
-			book.setTitle(name);
-			book.setAuthor(author);
-			book.setStatus(status);
-			BookManager nb = new BookManager();
-			nb.AddBook(book);
-			System.out.println("Done!");
+			//Home
+			if(bookmanagement==1)
+			{
+				System.out.println("You selected Home");
+
+
+			}// end of if Home
+
+			//Add book
+			if (bookmanagement==2) {
+				System.out.println("You selected Add book");
+
+				System.out.println("Enter a name");
+				String name = input.next();
+				System.out.println("Enter author name");
+				String author = input.next();
+				System.out.println("Enter a status (true/false");
+				Boolean status = input.nextBoolean();
+				Book book = new Book();
+				book.setTitle(name);
+				book.setAuthor(author);
+				book.setStatus(status);
+				BookManager nb = new BookManager();
+				nb.AddBook(book);
+				System.out.println("Done!");
+			}//end of if add book
+
+			//Delete book
+			if (bookmanagement==3){
+				System.out.println("You selected Delete book");
+
+			}//end of if delete book
+
+			//search book
+			if (bookmanagement==4){
+				System.out.println("You selected Search book");
+
+			}//end of if Search book
+
+			//Available book
+			if (bookmanagement==5){
+				System.out.println("You selected Available book list");
+
+			}//end of if available book list
+
 		}// end of if Book Management
 		
 		//Report
