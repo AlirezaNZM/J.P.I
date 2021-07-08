@@ -122,23 +122,60 @@ public class Main {
 		if(AdminMenu==2)
 		{
 			System.out.println("You selected User Management");
+			System.out.println("Select one of the following (enter its number)");
+			int usermanagement;
+			while(1==1) {
+				System.out.println("1:Home \t \n" + "2:Add 	Member \t \n" + "3:Delete Member \t \n" + "4:User information") ;
+				usermanagement = input.nextInt();
+				if (usermanagement == 1) {
+					break;
+				} else if (usermanagement == 2) {
+					break;
+				} else if (usermanagement == 3) {
+					break;
+				} else if (usermanagement == 4){
+					break;
+				} else
+					System.out.println("Enter the number correctly !");
+				}// end of if user management
+
+			//Home
+			if(usermanagement==1)
+			{
+				System.out.println("You selected Home");
+
+
+			}// end of if Home
 
 			//add member
-			System.out.println("You selected Add Member");
-			System.out.println("Enter name");
-			String name = input.next();
-			System.out.println("Enter family");
-			String family = input.next();
-			System.out.println("Enter Password");
-			String Password = input.next();
-			Member member = new Member();
-			member.setID();
-			member.setName(name);
-			member.setFamily(family);
-			member.setPassword(Password);
-			MemberManager nm = new MemberManager();
-			nm.AddMember(member);
-			//end of add member
+			if (usermanagement==2) {
+				System.out.println("You selected Add Member");
+				System.out.println("Enter name");
+				String name = input.next();
+				System.out.println("Enter family");
+				String family = input.next();
+				System.out.println("Enter Password");
+				String Password = input.next();
+				Member member = new Member();
+				member.setID();
+				member.setName(name);
+				member.setFamily(family);
+				member.setPassword(Password);
+				MemberManager nm = new MemberManager();
+				nm.AddMember(member);
+				}//end of add member
+
+			//delete member
+			if (usermanagement==3){
+				System.out.println("You selected Delete Member");
+
+			}//end of if delete member
+
+			//user informatin
+			if (usermanagement==4){
+				System.out.println("You selected User information");
+
+			}//end of if user information
 
 		}// end of if User Management
 		
