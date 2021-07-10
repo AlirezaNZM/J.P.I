@@ -20,8 +20,8 @@ public class AmanatManager extends txtManager
 	public void AddBook(Amanat a) 
 	{
 		Date date = new Date();
-		String str = String.format("Data: %tF", date);
-		String s="ID=" + a.getID() + "," +"Title=" + a.getTitle() + "," + "Author=" + a.getAuthor() + str;
+		String str = String.format("Data=%tF", date);
+		String s="ID=" + a.getID()+"," +"Title=" + a.getTitle() + "," + "Author=" + a.getAuthor() + ","+ str;
 		
 		super.txtWrite(s);
 	}

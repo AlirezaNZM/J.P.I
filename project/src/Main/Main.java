@@ -353,9 +353,10 @@ public class Main {
 			System.out.println("You selected Book Management");
 			
 			Amanat tx=new Amanat();
-			tx.setAuthor("asdasd");
-			tx.setTitle("asdasd");
+			tx.setAuthor("qweqweqw");
+			tx.setTitle("qweqweqweqw");
 			tx.setID(id);
+			
 			AmanatManager am=new AmanatManager();
 			am.AddBook(tx);
 			
@@ -389,6 +390,7 @@ public class Main {
 		//------------------------------- Exit -------------------------------
 		if(login==3)
 			System.out.println("Have good day :)");
+		
 		
 		
 		
