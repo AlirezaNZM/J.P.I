@@ -59,6 +59,7 @@ public class txtManager
             File file = new File(this.FileName);
             
                  file.delete();
+                 
           
 	}
 	
@@ -81,7 +82,7 @@ public class txtManager
                  while ((line[i] = buffer.readLine()) != null) 
                  {
                      i++;
-                     CountOFLine++;
+                     this.CountOFLine++;
                  }
                  buffer.close();
                  System.out.println("****** Finish Reading file ******");
@@ -132,12 +133,16 @@ public class txtManager
 	//----------------------------- CountOFLine --------------------------------
 	protected int CountOFLine()
 	{
-		if (CountOFLine==0)
+		if (CountOFLine!=0)
+		{
+			return this.CountOFLine;
+		}
+		else
 		{
 			String t[]=txtRead();
+			return this.CountOFLine;
 		}
-			
-		return this.CountOFLine;
+
 	}
 	
 	//----------------------------- Search ------------------------------------
@@ -186,10 +191,12 @@ public class txtManager
 	//----------------------------- DeleteLine --------------------------------
 	protected void txtDeleteLine(int x)
 	{
+		int z=CountOFLine;
 		String t[]=this.txtRead();
-		t[x]=" ";
+		
+		t[x]="---";
 		this.txtDelete();
-		for(int i=0;i<this.CountOFLine;i++)
+		for(int i=0;i<z;i++)
 		{
 			this.txtWrite(t[i]);
 		}

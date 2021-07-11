@@ -7,6 +7,7 @@ import library.Book;
 import library.Member;
 import libraryManager.AdminManager;
 import libraryManager.AmanatManager;
+import libraryManager.AvailableManager;
 import libraryManager.BookManager;
 import libraryManager.MemberManager;
 import txtManager.txtManager;
@@ -16,14 +17,14 @@ public class Main {
 
 	public static void main(String[] args) 
 	{
-		
+
 		
 		
 		
 		
 		//------------------------------- Login -------------------------------
 		int login=-1;
-		String search,id="",password;
+		String search,id="",password,Name,Family;
 		Scanner input =new Scanner (System.in);
 		System.out.println("Welcome to the H.U.T library");
 		System.out.println("Select one of the following (enter its number)");
@@ -125,7 +126,7 @@ public class Main {
 			System.out.println("Select one of the following (enter its number)");
 			int usermanagement;
 			while(1==1) {
-				System.out.println("1:Home \t \n" + "2:Add 	Member \t \n" + "3:Delete Member \t \n" + "4:User information") ;
+				System.out.println("1:Home \t \n" + "2:Add Member \t \n" + "3:Delete Member \t \n" + "4:User information") ;
 				usermanagement = input.nextInt();
 				if (usermanagement == 1) {
 					break;
@@ -150,30 +151,109 @@ public class Main {
 			//add member
 			if (usermanagement==2) {
 				System.out.println("You selected Add Member");
-				System.out.println("Enter name");
-				String name = input.next();
-				System.out.println("Enter family");
-				String family = input.next();
-				System.out.println("Enter Password");
-				String Password = input.next();
+				System.out.print("Enter Name:");
+				Name = input.next();
+				System.out.print("Enter Family:");
+				Family = input.next();
+				System.out.print("Enter Password:");
+				password = input.next();
 				Member member = new Member();
 				member.setID();
-				member.setName(name);
-				member.setFamily(family);
-				member.setPassword(Password);
-				MemberManager nm = new MemberManager();
-				nm.AddMember(member);
+				member.setName(Name);
+				member.setFamily(Family);
+				member.setPassword(password);
+				MemberManager mm = new MemberManager();
+				mm.AddMember(member);
+				
 				}//end of add member
 
 			//delete member
-			if (usermanagement==3){
+			if (usermanagement==3)
+			{
 				System.out.println("You selected Delete Member");
+				System.out.print("Enter ID:");
+				id=input.next();
+				System.out.print("Enter Password:");
+				password = input.next();
+				System.out.print("Enter Name:");
+				Name = input.next();
+				System.out.print("Enter Family:");
+				Family = input.next();
+
+				search="ID=" + id + "," + "Password=" + password+ "," + "Name=" + Name+ "," + "Family=" + Family;
+				MemberManager mm = new MemberManager();
+				int A[]=mm.search(search);
+				if(mm.indexA()==0)
+					System.out.println("The member was not found");
+				else if (mm.indexA()==1)
+				{
+					mm.DeleteMember(A[0]);
+					
+					System.out.println("The member was deleted");
+				}
+					
+					
+				
+				
+				
+				
 
 			}//end of if delete member
 
 			//user informatin
 			if (usermanagement==4){
 				System.out.println("You selected User information");
+				System.out.println("Select one of the following (enter its number)");
+				int userinformation;
+				while(1==1) 
+				{
+					System.out.print("1:Serach by Name and Famaily \t \n" + "2:Search by ID \t \n") ;
+					userinformation = input.nextInt();
+					if (userinformation == 1) {
+						break;
+					} else if (userinformation == 2) {
+						break;
+					} else
+						System.out.println("Enter the number correctly !");
+					
+				}// end of while user information
+				//Serach by Name and Famaily
+				if(userinformation == 1)
+				{
+					System.out.println("You selected Serach by Name and Famaily");
+					System.out.print("Enter Name:");
+					Name=input.next();
+					System.out.print("Enter Family:");
+					Family=input.next();
+					search="Name="+ Name  + "," + "Family=" + Family;
+					MemberManager mm = new MemberManager();
+					int A[]=mm.search(search);
+					String s[]=mm.txtRead();
+					search=s[A[0]].substring(0, 7);
+					System.out.println(search);
+					AmanatManager am=new AmanatManager();
+					int B[]=am.search(search);
+					String t[]=am.txtRead();
+					for(int i=0;i<am.indexA();i++)
+						System.out.println(t[i]);
+				}
+
+				//Serach by ID
+				else if(userinformation == 2)
+				{
+					System.out.println("You selected Serach by ID");
+					System.out.print("Enter ID:");
+					id=input.next();
+					search="ID="+ id;
+					AmanatManager am=new AmanatManager();
+					int A[]=am.search(search);
+					String t[]=am.txtRead();
+					for(int i=0;i<am.indexA();i++)
+						System.out.println(t[i]);
+				}
+				
+				
+				
 
 			}//end of if user information
 
@@ -293,11 +373,11 @@ public class Main {
 				password=input.next();
 				search="ID=" + id + "," + "Password=" + password;
 				System.out.println(search);
-				MemberManager member=new MemberManager();
-				member.search(search);
-				if(member.indexA()==0)
+				MemberManager mm=new MemberManager();
+				mm.search(search);
+				if(mm.indexA()==0)
 					System.out.println("The information entered is not valid !");
-				else if(member.indexA()==1)
+				else if(mm.indexA()==1)
 				{
 					System.out.println("You are logged in...");
 					
