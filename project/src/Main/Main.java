@@ -298,22 +298,44 @@ public class Main {
 				String name = input.next();
 				System.out.println("Enter author name");
 				String author = input.next();
-				System.out.println("Enter a status (true/false");
-				Boolean status = input.nextBoolean();
-				Book book = new Book();
-				book.setTitle(name);
-				book.setAuthor(author);
-				book.setStatus(status);
-				BookManager nb = new BookManager();
-				nb.AddBook(book);
-				System.out.println("Done!");
+
+				search="Title=" + name + "," + "Author=" + author + ",";
+				BookManager checkbook =new BookManager();
+				int A[]=checkbook.search(search);
+				if(checkbook.indexA()==1){
+					System.out.println("the book is exist");
+				} else if(checkbook.indexA()==0)
+				{
+
+					Book book = new Book();
+					book.setTitle(name);
+					book.setAuthor(author);
+
+					BookManager nb = new BookManager();
+					nb.AddBook(book);
+					System.out.println("Done!");
+				}
 			}//end of if add book
 
 			//Delete book
 			if (bookmanagement==3){
 				System.out.println("You selected Delete book");
+				System.out.println("Enter book Title");
+				String name = input.next();
+				System.out.println("Enter author name");
+				String author = input.next();
 
-			}//end of if delete book
+				search="Title=" + name + "," + "Author=" + author + ",";
+				BookManager checkbook =new BookManager();
+				int A[]=checkbook.search(search);
+				if(checkbook.indexA()==0)
+					System.out.println("the book is not exist");
+
+				else if (checkbook.indexA()==1) {
+
+					checkbook.DeleteBook(A[0]);
+				}
+				}//end of if delete book
 
 			//search book
 			if (bookmanagement==4){

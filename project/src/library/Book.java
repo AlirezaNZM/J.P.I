@@ -4,7 +4,7 @@ public class Book
 {
 	private String Title;
 	private String Author;
-	private Boolean Status;
+
 	
 	//------------------- getTitle -------------------------
 	public String getTitle() 
@@ -30,9 +30,5 @@ public class Book
 		Author = author;
 	}
 
-	//------------------- getStatus -------------------------
-	public 	Boolean getStatus() { return Status; }
 
-	//------------------- setStatus -------------------------
-	public void setStatus(Boolean status) { Status = status; }
 }//end of class
