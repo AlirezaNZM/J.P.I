@@ -18,8 +18,7 @@ public class Main {
 	public static void main(String[] args) 
 	{
 
-		
-		
+
 		
 		
 		//------------------------------- Login -------------------------------
@@ -115,7 +114,9 @@ public class Main {
 		if(AdminMenu==1)
 		{
 			System.out.println("You selected Home");
-			
+			System.out.println("List of library books");
+			BookManager bm=new BookManager();
+			System.out.println(bm.txtReadToString());
 			
 		}// end of if Home
 		
@@ -266,7 +267,7 @@ public class Main {
 			System.out.println("Select one of the following (enter its number)");
 			int bookmanagement;
 			while(1==1) {
-				System.out.println("1:Home \t \n" + "2:Add Book \t \n" + "3:Delete Book  \t \n" + "4:Search Book \t \n" + "5:Available Book list");
+				System.out.println("1:Home \t \n" + "2:Add Book \t \n" + "3:Delete Book  \t \n" + "4:Available Book list \t \n" + "5:Amanat Book list");
 				bookmanagement = input.nextInt();
 				if (bookmanagement == 1) {
 					break;
@@ -294,12 +295,12 @@ public class Main {
 			if (bookmanagement==2) {
 				System.out.println("You selected Add book");
 
-				System.out.println("Enter a name");
+				System.out.print("Enter a Title:");
 				String name = input.next();
-				System.out.println("Enter author name");
+				System.out.print("Enter author name:");
 				String author = input.next();
 
-				search="Title=" + name + "," + "Author=" + author + ",";
+				search="Title=" + name + "," + "Author=" + author;
 				BookManager checkbook =new BookManager();
 				int A[]=checkbook.search(search);
 				if(checkbook.indexA()==1){
@@ -314,18 +315,20 @@ public class Main {
 					BookManager nb = new BookManager();
 					nb.AddBook(book);
 					System.out.println("Done!");
+					AvailableManager av=new AvailableManager();
+					av.UpdateList();
 				}
 			}//end of if add book
 
 			//Delete book
 			if (bookmanagement==3){
 				System.out.println("You selected Delete book");
-				System.out.println("Enter book Title");
+				System.out.println("Enter book Title:");
 				String name = input.next();
-				System.out.println("Enter author name");
+				System.out.println("Enter author name:");
 				String author = input.next();
 
-				search="Title=" + name + "," + "Author=" + author + ",";
+				search="Title=" + name + "," + "Author=" + author ;
 				BookManager checkbook =new BookManager();
 				int A[]=checkbook.search(search);
 				if(checkbook.indexA()==0)
@@ -334,20 +337,27 @@ public class Main {
 				else if (checkbook.indexA()==1) {
 
 					checkbook.DeleteBook(A[0]);
+					AvailableManager av=new AvailableManager();
+					av.UpdateList();
 				}
 				}//end of if delete book
 
-			//search book
+			//Available book list
 			if (bookmanagement==4){
-				System.out.println("You selected Search book");
-
-			}//end of if Search book
-
-			//Available book
-			if (bookmanagement==5){
 				System.out.println("You selected Available book list");
+				AvailableManager av=new AvailableManager();
+				av.UpdateList();
+				System.out.println(av.txtReadToString());
 
-			}//end of if available book list
+			}//end of if Available book list
+
+			//Amanat book list
+			if (bookmanagement==5){
+				System.out.println("You selected Amanat book list");
+				AmanatManager am=new AmanatManager();
+				System.out.println(am.txtReadToString());
+
+			}//end of if Amanat book list
 
 		}// end of if Book Management
 		
@@ -359,7 +369,7 @@ public class Main {
 			int report;
 			while(1==1)
 			{
-				System.out.print("1:Report by one date \t \n" + "2:Report by two dates \t \n" + "3:Report by user name \t \n" + "4:Report by book name" + "5:Home") ;
+				System.out.print("1:Report by one date \t \n" + "2:Report by two dates \t \n" + "3:Report by user name \t \n" + "4:Report by book name" ) ;
 				report = input.nextInt();
 				if(report==1)
 				{
@@ -377,10 +387,7 @@ public class Main {
 				{
 					break;
 				}
-				else if(report==5)
-				{
-					break;
-				}
+
 				else
 					System.out.println("Enter the number correctly !");
 
@@ -416,11 +423,7 @@ public class Main {
 
 			}//end of if by book name
 
-			//if home
-			if (report==5){
-				System.out.println("You selected home");
 
-			}//end of if home
 
 		}// end of if Report
 		

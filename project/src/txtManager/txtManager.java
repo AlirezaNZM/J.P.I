@@ -194,7 +194,7 @@ public class txtManager
 		int z=CountOFLine;
 		String t[]=this.txtRead();
 		
-		t[x]="---";
+		t[x]="";
 		this.txtDelete();
 		for(int i=0;i<z;i++)
 		{

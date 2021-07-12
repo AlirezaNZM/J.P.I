@@ -16,7 +16,7 @@ public class BookManager extends txtManager
 	//----------------------------- AddBook --------------------------------
 	public void AddBook(Book b) 
 	{
-		String s="Title=" + b.getTitle() + "," + "Author=" + b.getAuthor() + "," ;
+		String s="Title=" + b.getTitle() + "," + "Author=" + b.getAuthor();
 		
 		super.txtWrite(s);
 	}

@@ -24,7 +24,7 @@ public class AmanatManager extends txtManager
 
 		LocalDate return_data = catch_date.plusDays(10);
 
-		String s="ID=" + a.getID() + "," +"Title=" + a.getTitle() + "," + "Author=" + a.getAuthor() + "," + "Catch date= " + catch_date + "," + "Return date= " + return_data;
+		String s="ID=" + a.getID() + "," +"Title=" + a.getTitle() + "," + "Author=" + a.getAuthor() + "," + "Catch date=" + catch_date + " " + "Return date=" + return_data;
 
 
 
