@@ -355,8 +355,73 @@ public class Main {
 		if(AdminMenu==4)
 		{
 			System.out.println("You selected Report");
-			
-			
+			System.out.println("Select one of the following (enter its number)");
+			int report;
+			while(1==1)
+			{
+				System.out.print("1:Report by one date \t \n" + "2:Report by two dates \t \n" + "3:Report by user name \t \n" + "4:Report by book name" + "5:Home") ;
+				report = input.nextInt();
+				if(report==1)
+				{
+					break;
+				}
+				else if(report==2)
+				{
+					break;
+				}
+				else if(report==3)
+				{
+					break;
+				}
+				else if(report==4)
+				{
+					break;
+				}
+				else if(report==5)
+				{
+					break;
+				}
+				else
+					System.out.println("Enter the number correctly !");
+
+			}// end of while report
+			//if by one date
+			if (report==1){
+				System.out.println("You selected report by one date");
+				System.out.println("Enter a day");
+				int day = input.nextInt();
+				System.out.println("Enter a month");
+				int month = input.nextInt();
+				System.out.println("Enter a year");
+				int year = input.nextInt();
+
+
+			}//end of if by one date
+
+			//if by two date
+			if (report==2){
+				System.out.println("You selected report by two dates");
+
+			}//end ofif by two date
+
+			//if by user name
+			if (report==3){
+				System.out.println("You selected report by user name");
+
+			}//end of if by user name
+
+			//if by book name
+			if (report==4){
+				System.out.println("You selected report by book name");
+
+			}//end of if by book name
+
+			//if home
+			if (report==5){
+				System.out.println("You selected home");
+
+			}//end of if home
+
 		}// end of if Report
 		
 		//Logout
