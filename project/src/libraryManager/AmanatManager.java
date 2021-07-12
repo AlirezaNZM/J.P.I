@@ -65,7 +65,7 @@ public class AmanatManager extends txtManager
 		return super.indexA();
 	}
 	
-	//----------------------------- DeleteMember --------------------------------
+	//----------------------------- DeleteBook --------------------------------
 	public void DeleteBook(int x)
 	{
 		 super.txtDeleteLine(x);

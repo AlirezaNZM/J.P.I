@@ -72,7 +72,7 @@ public class AvailableManager extends txtManager
 	//----------------------------- Delete --------------------------------
 	protected void Delete()
 	{
-		 super.txtDelete();;
+		 super.txtDelete();
 	}
 	
 	//----------------------------- ReadToString -------------------------
@@ -81,6 +81,18 @@ public class AvailableManager extends txtManager
 		
 		return super.txtReadToString();
 	}
-	
-	
+
+	//----------------------------- search ------------------------------
+	public int[] search (String s)
+	{
+		int A[]=new int[100];
+		A= super.search(s);
+		return A;
+	}
+	//----------------------------- indexA ------------------------------
+	public int indexA()
+	{
+		return super.indexA();
+	}
+
 }//end of class AvailableManager

@@ -401,6 +401,18 @@ public class Main {
 				int month = input.nextInt();
 				System.out.println("Enter a year");
 				int year = input.nextInt();
+				String date ="Return date=" + year + "-" + month + "-" + day;
+				search = date;
+				AmanatManager checkdate = new AmanatManager();
+				String s[]=checkdate.txtRead();
+				int A[]=checkdate.search(search);
+				if (checkdate.indexA()==0){
+					System.out.println("there is not any book with this date");
+				} else {
+					for (int i=0;i<checkdate.indexA();i++){
+						System.out.println(s[A[i]]);
+					}
+				}
 
 
 			}//end of if by one date
@@ -409,17 +421,46 @@ public class Main {
 			if (report==2){
 				System.out.println("You selected report by two dates");
 
-			}//end ofif by two date
+			}//end of if by two date
 
 			//if by user name
 			if (report==3){
 				System.out.println("You selected report by user name");
+				System.out.print("Enter Name:");
+				Name=input.next();
+				System.out.print("Enter Family:");
+				Family=input.next();
+				search="Name="+ Name  + "," + "Family=" + Family;
+				MemberManager mm = new MemberManager();
+				int A[]=mm.search(search);
+				String s[]=mm.txtRead();
+				search=s[A[0]].substring(0, 7);
+				System.out.println(search);
+				AmanatManager am=new AmanatManager();
+				int B[]=am.search(search);
+				String t[]=am.txtRead();
+				for(int i=0;i<am.indexA();i++)
+					System.out.println(t[i]);
 
 			}//end of if by user name
 
 			//if by book name
 			if (report==4){
 				System.out.println("You selected report by book name");
+				System.out.println("Enter the book name");
+				String name = input.next();
+				System.out.println("Enter author name");
+				String author = input.next();
+				search = "Title=" + name + "," + "Author=" + author;
+				AmanatManager checkbook = new AmanatManager();
+				int A[]=checkbook.search(search);
+				if (checkbook.indexA()==0){
+					System.out.println("the book is available");
+				} else {
+					String r[]=checkbook.txtRead();
+					for (int i=0;i<checkbook.indexA();i++)
+						System.out.println(r[A[i]]);
+				}
 
 			}//end of if by book name
 
@@ -487,8 +528,8 @@ public class Main {
 			System.out.println("Select one of the following (enter its number)");
 			while(1==1)
 			{
-				
-				System.out.println("1:Home \t \n" + "2:Book Management \t \n" + "3:Logout");
+
+				System.out.println("1:Home \t \n" + "2:Book Management \t \n" + "3:Change password\t \n" + "4:Logout");
 				MemberMenu=input.nextInt();
 				if(MemberMenu==1)
 				{
@@ -503,8 +544,13 @@ public class Main {
 					break;
 				}
 
+				else if (MemberMenu==4)
+				{
+					break;
+				}
 				else
 					System.out.println("Enter the number correctly !");
+
 			}
 			
 		}// end of if MemberMenu
@@ -521,26 +567,165 @@ public class Main {
 		if(MemberMenu==2)
 		{
 			System.out.println("You selected Book Management");
-			
-			Amanat tx=new Amanat();
-			tx.setAuthor("qweqweqw");
-			tx.setTitle("qweqweqweqw");
-			tx.setID(id);
-			
-			AmanatManager am=new AmanatManager();
-			am.AddBook(tx);
-			
+			System.out.println("Select one of the following (enter its number)");
+			int bookmanagement;
+			while(1==1)
+			{
+				System.out.println( "1:add book \t \n" + "2:search author\t \n" + "3:Borrow a book \t \n" + "4:My book list\t \n" + "5:Amanat book list\t \n" + "6:Relapse a book");
+				bookmanagement = input.nextInt();
+				if (bookmanagement == 1) {
+					break;
+				} else if (bookmanagement == 2) {
+					break;
+				} else if (bookmanagement == 3) {
+					break;
+				} else if (bookmanagement == 4) {
+					break;
+				} else if (bookmanagement == 5) {
+					break;
+				} else if (bookmanagement == 6) {
+					break;
+				}else
+					System.out.println("Enter the number correctly !");
+			}//end of while bookmanagement
+
+			//add book
+			if (bookmanagement == 1){
+				System.out.println("You selected add book");
+				System.out.print("Enter a Title:");
+				String name = input.next();
+				System.out.print("Enter author name:");
+				String author = input.next();
+
+				search="Title=" + name + "," + "Author=" + author;
+				BookManager checkbook =new BookManager();
+				int A[]=checkbook.search(search);
+				if(checkbook.indexA()==1){
+					System.out.println("the book is exist");
+				} else if(checkbook.indexA()==0)
+				{
+
+					Book book = new Book();
+					book.setTitle(name);
+					book.setAuthor(author);
+
+					BookManager nb = new BookManager();
+					nb.AddBook(book);
+					System.out.println("Done!");
+					AvailableManager av=new AvailableManager();
+					av.UpdateList();
+				}
+			}//end of if add book
+
+			//search author
+			if (bookmanagement == 2){
+				System.out.println("You selected search author");
+				System.out.println("Enter the author name");
+				String name = input.next();
+				search="Author=" + name;
+				BookManager autherbook = new BookManager();
+				String s[]=autherbook.txtRead();
+				int A[]= autherbook.search(search);
+				if (autherbook.indexA()==0){
+					System.out.println("there is not any book by this author");
+				} else {
+					for (int i=0;i<autherbook.indexA();i++){
+						System.out.println(s[A[i]]);
+					}
+				}
+			}//end of if search author
+
+			//borrow abook
+			if (bookmanagement == 3){
+				System.out.println("You selected borrow a book");
+				System.out.print("Enter a Title:");
+				String name = input.next();
+				System.out.print("Enter author name:");
+				String author = input.next();
+
+				search="Title=" + name + "," + "Author=" + author;
+				BookManager checkbook =new BookManager();
+				int A[]=checkbook.search(search);
+				if(checkbook.indexA()==0){
+					System.out.println("the book is not exist");
+
+				} else if(checkbook.indexA()==1) {
+					AvailableManager secendcheck = new AvailableManager();
+					int B[]=secendcheck.search(search);
+					if (secendcheck.indexA()==0){
+						System.out.println("the book is unavailable");
+					}else if (secendcheck.indexA()==1) {
+						Amanat tx = new Amanat();
+						tx.setAuthor(name);
+						tx.setTitle(author);
+						tx.setID(id);
+						AmanatManager am = new AmanatManager();
+						am.AddBook(tx);
+					}
+				}
+
+
+			}//end of if borrow a book
+
+			//my book list
+			if (bookmanagement == 4){
+				System.out.println("You selected my book list");
+				search="ID" + id;
+				AmanatManager bl = new AmanatManager();
+				int A[]=bl.search(search);
+				if (bl.indexA()==0){
+					System.out.println("You dont have any book");
+				} else {
+					String t[] = bl.txtRead();
+					for (int i = 8; i < bl.indexA(); i++)
+						System.out.println(t[i]);
+				}
+			}//end of if my book list
+
+			//amanat boo list
+			if (bookmanagement == 5){
+				System.out.println("You selected amanat book list");
+				AmanatManager am=new AmanatManager();
+				System.out.println(am.txtReadToString());
+			}//end of if amanat
+
+			//relaps a book
+			if (bookmanagement == 6){
+				System.out.println("You selected relapse a book");
+				System.out.println("Enter book Title:");
+				String name = input.next();
+				System.out.println("Enter author name:");
+				String author = input.next();
+
+				search="Title=" + name + "," + "Author=" + author ;
+				AmanatManager checkbook =new AmanatManager();
+				int A[]=checkbook.search(search);
+				if(checkbook.indexA()==0)
+					System.out.println("You have not borrowed this book");
+
+				else if (checkbook.indexA()==1) {
+
+					checkbook.DeleteBook(A[0]);
+					AvailableManager av=new AvailableManager();
+					av.UpdateList();
+				}
+			}
 		}//end of if Book Management
 				
-		//Logout
+		//Change password
 		if(MemberMenu==3)
 		{
+			System.out.println("You selected change password");
+					
+					
+		}// end of if change password
+
+		//Logout
+		if (MemberMenu==4)
+		{
 			System.out.println("You selected Logout");
-					
-					
-		}// end of if Logout
-				
-		
+
+		}//end of if logout
 			
 		
 		
