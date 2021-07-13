@@ -33,17 +33,14 @@ public class txtManager
             File file = new File(this.FileName);
             if (!file.exists()) {
                  file.createNewFile();
-                 System.out.println("creating new file");
-            }else{
-                 System.out.println("updating file");
-
+                // creating new file
             }
             BufferedWriter buffer = new BufferedWriter(new FileWriter(file , true));
             
             buffer.write(s);
             buffer.write("\n");
             buffer.close();
-            System.out.println("finish writing to file");
+            
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -76,7 +73,7 @@ public class txtManager
             File file = new File(this.FileName);
             if (file.exists()) 
             {
-                 System.out.println("****** Reading file ... ******");
+                 
                  BufferedReader buffer = new BufferedReader(new FileReader(file));
                  
                  while ((line[i] = buffer.readLine()) != null) 
@@ -85,7 +82,7 @@ public class txtManager
                      this.CountOFLine++;
                  }
                  buffer.close();
-                 System.out.println("****** Finish Reading file ******");
+                 
             }
             else
             {

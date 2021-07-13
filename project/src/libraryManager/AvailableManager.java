@@ -37,8 +37,7 @@ public class AvailableManager extends txtManager
 		{
 			String a=t[i].substring(8,t[i].lastIndexOf(","));
 			System.out.println(a);
-			//int A[]=bm.search(a);
-			//s[A[0]]="";
+
 			for(int j=0;j<countofbook;j++)
 			{
 		        for (int z = 0; z < s[j].length() - a.length() + 1; z++) 

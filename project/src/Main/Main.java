@@ -191,8 +191,22 @@ public class Main {
 					mm.DeleteMember(A[0]);
 					
 					System.out.println("The member was deleted");
+					
+					AmanatManager am=new AmanatManager();
+					String serachinAmanat="ID=" + id;
+					int B[]=am.search(serachinAmanat);
+					int lengthB=am.indexA();
+					if(lengthB !=0)
+					{
+						for(int i=0;i<lengthB;i++)
+							am.DeleteBook(B[i]);
+						
+					}
+					AvailableManager av=new AvailableManager();
+					av.UpdateList();
 				}
 					
+				
 					
 				
 				
@@ -661,6 +675,7 @@ public class Main {
 						tx.setID(id);
 						AmanatManager am = new AmanatManager();
 						am.AddBook(tx);
+						secendcheck.UpdateList();
 					}
 				}
 
@@ -670,19 +685,19 @@ public class Main {
 			//my book list
 			if (bookmanagement == 4){
 				System.out.println("You selected my book list");
-				search="ID" + id;
+				search="ID=" + id;
 				AmanatManager bl = new AmanatManager();
 				int A[]=bl.search(search);
 				if (bl.indexA()==0){
 					System.out.println("You dont have any book");
 				} else {
 					String t[] = bl.txtRead();
-					for (int i = 8; i < bl.indexA(); i++)
-						System.out.println(t[i]);
+					for (int i = 0; i < bl.indexA(); i++)
+						System.out.println(t[A[i]]);
 				}
 			}//end of if my book list
 
-			//amanat boo list
+			//amanat book list
 			if (bookmanagement == 5){
 				System.out.println("You selected amanat book list");
 				AmanatManager am=new AmanatManager();

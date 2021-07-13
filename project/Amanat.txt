@@ -1,6 +1,4 @@
-ID=1111,Title=qweqweqweqw,Author=qweqweqw,Data=2021-07-10
-ID=1111,Title=qweqweqweqw,Author=qweqweqw,Data=2021-07-10
-ID=1111,Title=qweqweqweqw,Author=qweqweqw,Data=2021-07-10
-ID=1111,Title=qweqweqweqw,Author=qweqweqw,Data=2021-07-10
-ID=1111,Title=qweqweqweqw,Author=qweqweqw,Catch date= 2021-07-12 Return date= 2021-07-22
-ID=1111,Title=qweqweqweqw,Author=qweqweqw,Catch date=2021-07-12 Return date=2021-07-22
+ID=1111,Title=1984,Author=George Orwell,Catch date=2021-07-10 Return date=2021-07-20
+ID=1111,Title=The Hobbit,Author=J.R.R. Tolkien,Catch date=2021-07-11 Return date=2021-07-21
+ID=1112,Title=Hamlet,Author=William Shakespeare,Catch date=2021-07-12 Return date=2021-07-22
+ID=1113,Title=Alice in Wonderland,Author=Lewis Carroll,Catch date=2021-07-12 Return date=2021-07-22
